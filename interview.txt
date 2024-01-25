@@ -1,0 +1,5 @@
+1. Why path module used?
+2. Why does static function used?
+3. Do we use external css in public folder? No
+4. How to print a file in app.get method ? sendFile
+5. How to remove file extension from the url?

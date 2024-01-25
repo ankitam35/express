@@ -1,20 +1,19 @@
 const express = require('express');
+const path = require('path');
+
 const app = express();
+const publicPath = path.join(__dirname, 'public')
 
-app.get("", (req, resp) => {
-    resp.send("Welcome," + req.query.name);
+app.set('view engine', 'ejs');
+
+app.get('/profile', (_, resp) => {
+    const user = {
+        name: 'Peter',
+        email: 'peter@test.com',
+        country: 'USA',
+        skills: ['php', 'js', 'node js', 'java', 'c++']
+    }
+    resp.render('profile', { user })
 });
-
-app.get("/about", (req, resp) => {
-    resp.send(`
-        <input type="text" placeholder="Type the Name" />
-        <button>Click Me</button>
-    `);
-});
-
-app.get("/help", (req, resp) => {
-    resp.send({name:"Ankit Mishra", email:"ankit@gmail.com"});
-});
-
 
 app.listen(4000);
